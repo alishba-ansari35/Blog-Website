@@ -6,7 +6,7 @@ const buttonVariants = cva(
   "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible-outline-none focus-visible:ring-1 focus-visible:ring:ring disabled:pointer-events-none disable:opacity-50 ",
   {
     variants: {
-    variant: {
+    variants: {
       default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
       destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
       outline: "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground ",
@@ -24,7 +24,7 @@ const buttonVariants = cva(
       },
 
       defaultVariants:{
-        variant: "default",
+        variants: "default",
         size: "default",
       },
   },
@@ -33,18 +33,18 @@ const buttonVariants = cva(
 
 export interface ButtonProps 
 extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link";
+  variants?: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link";
   size?: "default" | "sm" | "lg" | "icon";
   asChild?: boolean; 
 }
 
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps> (
-  ({ className, variant = "default" , size = "default" ,  ...props}, ref) => {
+  ({ className, variants = "default" , size = "default" ,  ...props}, ref) => {
    const Comp = "button";
    return(
     <Comp
-    className={cn(buttonVariants({variant, size, className}))}
+    className={cn(buttonVariants({variants, size, className}))}
     ref={ref}
     {...props}
     />
